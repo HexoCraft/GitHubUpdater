@@ -28,7 +28,6 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import org.apache.commons.io.FilenameUtils;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.json.simple.JSONArray;
@@ -507,9 +506,10 @@ public class GitHubUpdater {
         FileOutputStream fout = null;
         try {
             URL fileUrl = new URL(this.versionLink);
+            String fileName = fileUrl.toString().substring(fileUrl.toString().lastIndexOf("/") + 1);
             final int fileLength = fileUrl.openConnection().getContentLength();
             in = new BufferedInputStream(fileUrl.openStream());
-            fout = new FileOutputStream(new File(this.updateFolder, FilenameUtils.getName(fileUrl.toString())/*file.getName()*/));
+            fout = new FileOutputStream(new File(this.updateFolder, fileName));
 
             final byte[] data = new byte[GitHubUpdater.BYTE_SIZE];
             int count;
