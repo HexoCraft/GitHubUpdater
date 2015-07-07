@@ -1,6 +1,22 @@
 package com.github.hexosse.githubupdater;
 
 
+/*
+ * Copyright 2015 hexosse
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -20,20 +36,12 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
 /**
- * Check for updates on BukkitDev for a given plugin, and download the updates if needed.
- * <p>
- * <b>VERY, VERY IMPORTANT</b>: Because there are no standards for adding auto-update toggles in your plugin's config, this system provides NO CHECK WITH YOUR CONFIG to make sure the user has allowed auto-updating.
- * <br>
- * It is a <b>BUKKIT POLICY</b> that you include a boolean value in your config that prevents the auto-updater from running <b>AT ALL</b>.
- * <br>
- * If you fail to include this option in your config, your plugin will be <b>REJECTED</b> when you attempt to submit it to dev.bukkit.org.
- * </p>
- * An example of a good configuration option would be something similar to 'auto-update: true' - if this value is set to false you may NOT run the auto-updater.
- * <br>
- * If you are unsure about these rules, please read the plugin submission guidelines: http://goo.gl/8iU5l
+ * Check for updates on GitHub for a gien repository.
  *
- * @author Gravity
- * @version 2.3
+ * (This is an update version of Gravity plugin that was design for bukkit)
+ *
+ * @author hexoose
+ * @version 1.0
  */
 
 @SuppressWarnings("unused")
@@ -186,9 +194,9 @@ public class GitHubUpdater {
     {
         /**
          * Pattern used to match semantic versioning compliant strings.
-         * <p/>
+         * <br>
          * Major: matcher.group(1) Minor: matcher.group(2) Patch: matcher.group(3)
-         * <p/>
+         * <br>
          * Does detect suffixes such as RC though they're unused as of now.
          */
         protected static Pattern regex = Pattern.compile("(?:[v]?)([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?(?:\\+[0-9A-Za-z-]+)?", Pattern.CASE_INSENSITIVE);
