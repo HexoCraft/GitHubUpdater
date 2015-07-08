@@ -22,7 +22,7 @@
 
     <groupId>com.github.hexosse</groupId>
     <artifactId>GitHubUpdater</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
     <name>GitHubUpdater</name>
     <description>This updater allow you to update bukkit plugin from GitHub releases.</description>
@@ -41,6 +41,7 @@
     <properties>
         <plugin.name>${project.name}</plugin.name>
         <plugin.version>${project.version}</plugin.version>
+        <jdk.version>1.7</jdk.version>
         <spigot.version>LATEST</spigot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <github.global.server>github</github.global.server>
@@ -128,8 +129,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
                 </configuration>
             </plugin>
             <plugin>
