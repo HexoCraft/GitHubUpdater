@@ -759,7 +759,7 @@ public class GitHubUpdater {
                 return false;
             }
 
-            JSONObject latestUpdate = (JSONObject) responseArray.get(responseArray.size() - 1);
+            JSONObject latestUpdate = (JSONObject) responseArray.get(0);
             this.versionLatest = (String) latestUpdate.get(GitHubUpdater.VERSION_VALUE);
             this.version = Version.parse(this.versionLatest);
             this.versionType = ( (Boolean)latestUpdate.get(GitHubUpdater.TYPE_DRAFT_VALUE)==true ? ReleaseType.DRAFT : ((Boolean)latestUpdate.get(GitHubUpdater.TYPE_PRERELEASE_VALUE)==true ? ReleaseType.PRERELEASE : (ReleaseType.RELEASE)) );
