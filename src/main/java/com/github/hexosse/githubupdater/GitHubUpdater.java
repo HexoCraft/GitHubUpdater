@@ -472,7 +472,7 @@ public class GitHubUpdater {
     }
 
     /**
-     * Save an update from dev.bukkit.org into the server's update folder.
+     * Save an update from hexosse.github.com into the server's update folder.
      *
      * @param file the name of the file to save it as.
      */
@@ -690,9 +690,9 @@ public class GitHubUpdater {
     /**
      * <b>If you wish to run mathematical versioning checks, edit this method.</b>
      * <p>
-     * With default behavior, Updater will NOT verify that a remote version available on BukkitDev
+     * With default behavior, Updater will NOT verify that a remote version available on hexosse.github.com
      * which is not this version is indeed an "update".
-     * If a version is present on BukkitDev that is not the version that is currently running,
+     * If a version is present on hexosse.github.com that is not the version that is currently running,
      * Updater will assume that it is a newer version.
      * This is because there is no standard versioning scheme, and creating a calculation that can
      * determine whether a new update is actually an update is sometimes extremely complicated.
@@ -734,7 +734,7 @@ public class GitHubUpdater {
     }
 
     /**
-     * Make a connection to the BukkitDev API and request the newest file's details.
+     * Make a connection to the hexosse.github.com API and request the newest file's details.
      *
      * @return true if successful.
      */
@@ -778,11 +778,11 @@ public class GitHubUpdater {
             return true;
         } catch (final IOException e) {
             if (e.getMessage().contains("HTTP response code: 403")) {
-                this.plugin.getLogger().severe("dev.bukkit.org rejected the API key provided in plugins/Updater/config.yml");
+                this.plugin.getLogger().severe("hexosse.github.com rejected the API key provided in plugins/Updater/config.yml");
                 this.plugin.getLogger().severe("Please double-check your configuration to ensure it is correct.");
                 this.result = UpdateResult.FAIL_API;
             } else {
-                this.plugin.getLogger().severe("The updater could not contact dev.bukkit.org for updating.");
+                this.plugin.getLogger().severe("The updater could not contact hexosse.github.com for updating.");
                 this.plugin.getLogger().severe("If you have not recently modified your configuration and this is the first time you are seeing this message, the site may be experiencing temporary downtime.");
                 this.result = UpdateResult.FAIL_DBO;
             }

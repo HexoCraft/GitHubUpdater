@@ -22,7 +22,7 @@
 
     <groupId>com.github.hexosse</groupId>
     <artifactId>GitHubUpdater</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
     <name>GitHubUpdater</name>
     <description>This updater allow you to update bukkit plugin from GitHub releases.</description>
