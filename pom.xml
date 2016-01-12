@@ -22,13 +22,14 @@
 
     <groupId>com.github.hexosse</groupId>
     <artifactId>GitHubUpdater</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <packaging>jar</packaging>
     <name>GitHubUpdater</name>
     <description>This updater allow you to update bukkit plugin from GitHub releases.</description>
     <url>https://github.com/hexosse/GitHubUpdater</url>
 
 
+    <!-- License -->
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -38,17 +39,27 @@
     </licenses>
 
 
+    <!-- scm -->
+    <scm>
+        <connection>scm:git:git://github.com/hexosse/GitHubUpdater.git</connection>
+        <developerConnection>scm:git:git@github.com:hexosse/GitHubUpdater.git</developerConnection>
+        <url>https://github.com/hexosse/GitHubUpdater</url>
+    </scm>
+
+
+    <!-- Propriétés du projet -->
     <properties>
         <plugin.name>${project.name}</plugin.name>
         <plugin.version>${project.version}</plugin.version>
         <jdk.version>1.7</jdk.version>
-        <spigot.version>LATEST</spigot.version>
+        <spigot.version>1.8.8-R0.1-SNAPSHOT</spigot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.internal.repo>${project.build.directory}/maven-repo</maven.internal.repo>
         <github.global.server>github</github.global.server>
     </properties>
 
 
+    <!-- Développeurs -->
     <developers>
         <developer>
             <id>hexosse</id>
@@ -57,6 +68,8 @@
         </developer>
     </developers>
 
+
+    <!-- distribution Management -->
     <distributionManagement>
         <repository>
             <id>internal.repo</id>
@@ -94,10 +107,13 @@
     </dependencies>
 
 
+    <!-- Options de build -->
     <build>
-        <sourceDirectory>src/main/java</sourceDirectory>
-        <finalName>${plugin.name}</finalName>
         <defaultGoal>clean install</defaultGoal>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <finalName>${plugin.name}-${plugin.version}</finalName>
+
+        <!-- Ressources -->
         <resources>
             <resource>
                 <targetPath>.</targetPath>
@@ -109,22 +125,18 @@
             </resource>
         </resources>
 
+        <!-- Liste des plugins -->
+        <!-- http://mvnrepository.com/artifact/org.apache.maven.plugins -->
         <plugins>
-            <!-- Liste des plugin maven -->
-            <!-- http://mvnrepository.com/artifact/org.apache.maven.plugins -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <finalName>${plugin.name}</finalName>
-                </configuration>
-            </plugin>
+
+            <!-- maven-clean-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>2.6.1</version>
             </plugin>
+
+            <!-- maven-compiler-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -134,16 +146,8 @@
                     <target>${jdk.version}</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.4</version>
-            </plugin>
+
+            <!-- maven-source-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -157,6 +161,8 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- maven-javadoc-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -170,6 +176,32 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- maven-shade-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>
+
+            <!-- maven-jar-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <finalName>${plugin.name}</finalName>
+                </configuration>
+            </plugin>
+
+            <!-- maven-install-plugin -->
+             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+            </plugin>
+
+            <!-- maven-deploy-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
@@ -178,6 +210,8 @@
                     <altDeploymentRepository>internal.repo::default::file://${maven.internal.repo}</altDeploymentRepository>
                 </configuration>
             </plugin>
+
+            <!-- site-maven-plugin (GitHub) -->
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
