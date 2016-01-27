@@ -1,4 +1,4 @@
-# GitHubUpdater [![Build Status](https://drone.io/github.com/hexosse/GitHubUpdater/status.png)](https://drone.io/github.com/hexosse/GitHubUpdater/latest) [![Build Status](https://travis-ci.org/hexosse/GitHubUpdater.svg?branch=master)](https://travis-ci.org/hexosse/GitHubUpdater)
+# GitHubUpdater
 This code is an update version of gravitylow updater design for GitHub instead of BukkitDev
 This updater is for bukkit developers who want to publish there plugin on GitHub!
 
