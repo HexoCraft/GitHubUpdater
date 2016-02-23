@@ -22,7 +22,7 @@
 
     <groupId>com.github.hexosse</groupId>
     <artifactId>GitHubUpdater</artifactId>
-    <version>1.0.5-SNAPSHOT</version>
+    <version>1.0.5</version>
     <packaging>jar</packaging>
     <name>GitHubUpdater</name>
     <description>This updater allow you to update bukkit plugin from GitHub releases.</description>
@@ -43,8 +43,12 @@
     <scm>
         <connection>scm:git:git://github.com/hexosse/GitHubUpdater.git</connection>
         <developerConnection>scm:git:git@github.com:hexosse/GitHubUpdater.git</developerConnection>
-        <url>https://github.com/hexosse/GitHubUpdater</url>
+        <url>git@github.com:hexosse/GitHubUpdater.git</url>
     </scm>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/hexosse/GitHubUpdater/issues</url>
+    </issueManagement>
 
 
     <!-- Propriétés du projet -->
@@ -97,13 +101,13 @@
             <version>${spigot.version}</version>
             <scope>provided</scope>
         </dependency>
-        <!--Bukkit API-->
-        <dependency>
+        <!-- Bukkit API -->
+        <!--<dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
             <version>${spigot.version}</version>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
 
@@ -140,7 +144,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5</version>
+                <version>3.5.1</version>
                 <configuration>
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>

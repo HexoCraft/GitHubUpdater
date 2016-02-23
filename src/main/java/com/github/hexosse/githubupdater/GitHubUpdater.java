@@ -786,8 +786,7 @@ public class GitHubUpdater {
                 this.plugin.getLogger().severe("If you have not recently modified your configuration and this is the first time you are seeing this message, the site may be experiencing temporary downtime.");
                 this.result = UpdateResult.FAIL_DBO;
             }
-            this.plugin.getLogger().log(Level.SEVERE, null, e);
-            return false;
+           return false;
         }
     }
 
