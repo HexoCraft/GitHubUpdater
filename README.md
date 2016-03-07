@@ -25,7 +25,7 @@ Then, add the following dependency:
         <dependency>
             <groupId>com.github.hexosse</groupId>
             <artifactId>GitHubUpdater</artifactId>
-            <version>1.0.4</version>
+            <version>1.0.5</version>
         </dependency>
 ```
 Otherwise, download the [source code](https://github.com/hexosse/GitHubUpdater/tree/master/src/main/java/com/github/hexosse/githubupdater) for GitHubUpdater. Simply place this somewhere within your plugin's packages.
